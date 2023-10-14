@@ -13,7 +13,7 @@ x_train = np.array(dataset.iloc[0:500, 0:6])   # consider the first 6 columns as
 x_train = FeatureScaling.meanNormal(x_train)
 y_train = np.array(dataset.iloc[0:500, -1])  # The last column is the target
 
-x_test = np.array(dataset.iloc[501:-1, 0:6])   # consider the first 6 columns as features of a single training example
+x_test = np.array(dataset.iloc[501:-1, 0:6])   # consider the first 6 columns as features of a single test example
 x_test = FeatureScaling.meanNormal(x_test)
 y_test = np.array(dataset.iloc[501:-1, -1])  # The last column is the target
 
