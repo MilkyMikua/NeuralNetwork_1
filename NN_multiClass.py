@@ -13,12 +13,13 @@ path = r'C:\Users\h8611\OneDrive\Desktop\MLS Slides\HousePrice\IRIS.csv'  # Loca
 dataset = pd.read_csv(path)
 
 
-# As usual, use
+# Traing dataset
 x_train = np.array(dataset.iloc[0:120, 0:-1])   # consider the first 6 columns as features of a single training example
 x_train = FeatureScaling.meanNormal(x_train)
 y_train = np.array(dataset.iloc[0:120, -1])  # The last column is the target
 
-x_test = np.array(dataset.iloc[121:-1, 0:-1])   # consider the first 6 columns as features of a single training example
+# Test dataset
+x_test = np.array(dataset.iloc[121:-1, 0:-1])   # consider the first 6 columns as features of a single test example
 x_test = FeatureScaling.meanNormal(x_test)
 y_test = np.array(dataset.iloc[121:-1, -1])  # The last column is the target
 
