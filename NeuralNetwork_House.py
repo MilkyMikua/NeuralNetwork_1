@@ -37,8 +37,16 @@ model = tf.keras.models.Sequential([
 model.compile(optimizer = 'adam', loss = 'MeanSquaredError')
 
 # model.fit start to iterate and optimize the model, epochs = total iterations
-fiter = model.fit(x_train, y_train, epochs=500)
+model.fit(x_train, y_train, epochs=500)
 
+# plot MSE
+iterRecord = model.history.history
+# print(loss, "Loss fun")
+# iterRecord is a dict. loss tracks each iteration's MSE(error)
+MSE = iterRecord['loss']
+plt.plot(MSE)
+plt.title("loss Function")
+plt.show()
 
 # Use the test set to evalute the performance
 # Notice, my training and test set is not randomly choose from dataset
@@ -46,6 +54,6 @@ fiter = model.fit(x_train, y_train, epochs=500)
 evale = model.evaluate(x_test, y_test)
 print(evale,"eval")
 
-x= np.array([[3,134.4, 93, 28.9, 1, 22]])
+x= np.array([[3, 134.4, 93, 28.9, 1, 22]])
 pred = model.predict(x)
 print(pred, "pred")
